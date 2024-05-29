@@ -7,6 +7,7 @@ TagManager:
   - Kogel
   - Munt
   - BadKogel
+  - Healing
   layers:
   - Default
   - TransparentFX
