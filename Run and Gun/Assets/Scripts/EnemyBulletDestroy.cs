@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDestroy : MonoBehaviour
+public class EnemyBulletDestroy : MonoBehaviour
 {
     public float destroyTimer = 2f;
 
@@ -23,7 +23,7 @@ public class BulletDestroy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }

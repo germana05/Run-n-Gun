@@ -8,6 +8,9 @@ TagManager:
   - Munt
   - BadKogel
   - Healing
+  - Chest
+  - Key
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -7,15 +7,19 @@ using TMPro;
 public class PlayerStats : MonoBehaviour
 {
     public int levens;
-    public int Damage;
     public int coins;
     public int keys;
+    public bool hasKey = false;
+    public bool canTakeDamage = true;
+    public float invincibleTimer = 1f;
     public GameObject deathScreen;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public GameObject currentChest;
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI keysText;
+
 
     void Start()
     {
@@ -24,8 +28,20 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
+        if (canTakeDamage == false)
+        {
+            invincibleTimer -= Time.deltaTime;
+        }
+
+        if (invincibleTimer <= 0 )
+        {
+            canTakeDamage = true;
+            invincibleTimer = 1f;
+        }
+
         coinsText.text = coins.ToString();
         keysText.text = keys.ToString();
+
         if (levens == 0)
         {
             Destroy(gameObject);
@@ -37,6 +53,20 @@ public class PlayerStats : MonoBehaviour
         if (levens > 3)
         {
             levens = 3;
+        }
+        if (keys >= 1)
+        {
+            hasKey = true;
+        }
+        else
+        {
+            hasKey= false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.E) && hasKey == true)
+        {
+            Debug.Log("opent kist");
+            keys--;
         }
 
         if (levens == 3)
@@ -59,21 +89,32 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("BadKogel"))
+        if (collision.gameObject.CompareTag("BadKogel") && canTakeDamage == true)
         {
             levens--;
+            canTakeDamage = false;
         }
         if (collision.gameObject.CompareTag("Munt"))
         {
             coins++;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            keys++;
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.CompareTag("Healing") && levens < 3)
         {
             levens++;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Enemy") && canTakeDamage == true)
+        {
+            levens--;
+            canTakeDamage = false;
         }
     }
 }
