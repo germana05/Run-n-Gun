@@ -14,6 +14,8 @@ public class EnemyStats : MonoBehaviour
     public GameObject heart3;
     public GameObject kogel;
     public Transform kogelSpawn;
+    public Transform player;
+    public Transform rotateObject;
 
     void Start()
     {
@@ -22,6 +24,13 @@ public class EnemyStats : MonoBehaviour
 
     void Update()
     {
+        if (player != null && rotateObject != null)
+        {
+            Vector3 direction = player.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rotateObject.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+
         if (canShoot == true)
         {
             Instantiate(kogel, kogelSpawn.position, kogelSpawn.rotation);
