@@ -8,7 +8,7 @@ public class BulletDestroy : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()

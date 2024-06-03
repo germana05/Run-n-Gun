@@ -560,12 +560,14 @@ MonoBehaviour:
   canTakeDamage: 1
   canShoot: 1
   invincibleTimer: 1
-  shootCooldown: 1
+  shootCooldown: 2
   heart1: {fileID: 6333833540293522354}
   heart2: {fileID: 511126120690509446}
   heart3: {fileID: 2651488199329788166}
   kogel: {fileID: 7730022511349040998, guid: 61eca7396ff370d49830251602bb2c19, type: 3}
   kogelSpawn: {fileID: 2736321261444335194}
+  player: {fileID: 0}
+  rotateObject: {fileID: 8867875769501171919}
 --- !u!61 &3298426107828187362
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
     public int levens;
     public int coins;
     public int keys;
+    public int score;
+    public int highScore;
     public bool hasKey = false;
     public bool canTakeDamage = true;
     public float invincibleTimer = 1f;

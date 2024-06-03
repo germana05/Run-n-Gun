@@ -1605,11 +1605,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583980273}
   m_CullTransparentMesh: 1
---- !u!4 &697848201 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2736321261444335194, guid: a39c79e49086e4d40befb45c8fbb8ed8, type: 3}
-  m_PrefabInstance: {fileID: 4202655113173038313}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842317290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +3732,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1001063040374973595, guid: 66b1b079671af674398314729774b003, type: 3}
+      propertyPath: kogelSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2608853801184885715, guid: 66b1b079671af674398314729774b003, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3835,17 +3834,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 734052834609884905, guid: a39c79e49086e4d40befb45c8fbb8ed8, type: 3}
-      propertyPath: kogel
-      value: 
-      objectReference: {fileID: 7730022511349040998, guid: 61eca7396ff370d49830251602bb2c19, type: 3}
-    - target: {fileID: 734052834609884905, guid: a39c79e49086e4d40befb45c8fbb8ed8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2116594583}
-    - target: {fileID: 734052834609884905, guid: a39c79e49086e4d40befb45c8fbb8ed8, type: 3}
-      propertyPath: kogelSpawn
-      value: 
-      objectReference: {fileID: 697848201}
     - target: {fileID: 734052834609884905, guid: a39c79e49086e4d40befb45c8fbb8ed8, type: 3}
       propertyPath: rotateObject
       value: 
