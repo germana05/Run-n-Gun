@@ -9,6 +9,8 @@ public class WapenRichten : MonoBehaviour
     public TextMeshProUGUI bulletText;
     private Camera mainCam;
     private Vector3 mousePos;
+    public GameObject machineAmmo;
+    public GameObject blasterAmmo;
     public GameObject bulletBlaster;
     public GameObject bulletMachine;
     public GameObject blaster;
@@ -74,6 +76,17 @@ public class WapenRichten : MonoBehaviour
                 canFireMachine = true;
                 timer = 0;
             }
+        }
+
+        if (holdsMachine == true)
+        {
+            machineAmmo.SetActive(true);
+            blasterAmmo.SetActive(false);
+        }
+        else if (holdsBlaster == true)
+        {
+            machineAmmo.SetActive(false);
+            blasterAmmo.SetActive(true);
         }
 
         WeaponSwitch();
