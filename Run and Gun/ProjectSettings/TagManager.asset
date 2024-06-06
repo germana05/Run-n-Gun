@@ -11,6 +11,7 @@ TagManager:
   - Chest
   - Key
   - Enemy
+  - BulletPickup
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3119790450836822077}
   - component: {fileID: 7216265711969069115}
   - component: {fileID: 631985704925227955}
-  - component: {fileID: -4212739359597630874}
+  - component: {fileID: -3498671602576026579}
+  - component: {fileID: -4042645474840790313}
   m_Layer: 0
   m_Name: item_arrow
   m_TagString: BadKogel
@@ -115,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.004704356, y: -0.0015681982}
@@ -131,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9695022, y: 0.13523734}
   m_EdgeRadius: 0
---- !u!114 &-4212739359597630874
+--- !u!114 &-3498671602576026579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +141,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 7730022511349040998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745f5301db5584a4f8018ee86d22386a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0254c4a2b63da9c40a3a208b0f168b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTimer: 2
+  player: {fileID: 0}
+  force: 6
+--- !u!50 &-4042645474840790313
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730022511349040998}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

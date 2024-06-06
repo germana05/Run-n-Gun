@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour
     public int levens = 3;
     public bool canTakeDamage = true;
     public bool canShoot = true;
-    public float invincibleTimer = 1f;
+    public float invincibleTimer = 0.1f;
     public float shootCooldown = 2f;
     public GameObject heart1;
     public GameObject heart2;
@@ -61,7 +61,7 @@ public class EnemyStats : MonoBehaviour
         if (invincibleTimer < 0f)
         {
             canTakeDamage = true;
-            invincibleTimer = 1f;
+            invincibleTimer = 0.1f;
         }
 
         if (levens == 3)

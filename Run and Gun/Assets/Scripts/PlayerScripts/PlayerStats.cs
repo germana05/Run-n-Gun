@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour
             heart2.SetActive(false);
             heart3.SetActive(false);
             deathScreen.SetActive(true);
+            Time.timeScale = 0f;
         }
         if (levens > 3)
         {

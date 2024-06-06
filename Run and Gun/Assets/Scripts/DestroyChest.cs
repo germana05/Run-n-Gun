@@ -21,11 +21,11 @@ public class DestroyChest : MonoBehaviour
             if (stats.hasKey == true)
             {
                 Destroy(stats.currentChest);
-                Debug.Log("je moeder");
+                Debug.Log("key is used");
             }
             else
             {
-                Debug.Log("je vader");
+                Debug.Log("has no key");
             }
         }
     }
