@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     public int coins;
     public int keys;
     public int score;
-    public int highScore;
+    //public int highScore;
     public bool hasKey = false;
     public bool canTakeDamage = true;
     public float invincibleTimer = 1f;
@@ -21,6 +21,8 @@ public class PlayerStats : MonoBehaviour
     public GameObject currentChest;
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI keysText;
+    public TextMeshProUGUI scoreText;
+    //public TextMeshProUGUI highScoreText;
 
 
     void Start()
@@ -43,6 +45,8 @@ public class PlayerStats : MonoBehaviour
 
         coinsText.text = coins.ToString();
         keysText.text = keys.ToString();
+        scoreText.text = score.ToString();
+        //highScoreText.text = highScore.ToString();
 
         if (levens == 0)
         {

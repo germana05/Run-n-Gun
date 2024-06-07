@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+    public float timer;
 
     void Start()
     {
@@ -23,7 +24,12 @@ public class BulletScript : MonoBehaviour
 
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer > 2)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
