@@ -15,13 +15,17 @@ public class PlayerStats : MonoBehaviour
     public bool canTakeDamage = true;
     public float invincibleTimer = 1f;
     public GameObject deathScreen;
+    public GameObject endScreen;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public GameObject coins1;
+    public GameObject coins2;
+    public GameObject coins3;
     public GameObject currentChest;
-    public TextMeshProUGUI coinsText;
     public TextMeshProUGUI keysText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI endScoreText;
     //public TextMeshProUGUI highScoreText;
 
 
@@ -43,9 +47,9 @@ public class PlayerStats : MonoBehaviour
             invincibleTimer = 1f;
         }
 
-        coinsText.text = coins.ToString();
         keysText.text = keys.ToString();
         scoreText.text = score.ToString();
+        endScoreText.text = score.ToString();
         //highScoreText.text = highScore.ToString();
 
         if (levens == 0)
@@ -88,6 +92,25 @@ public class PlayerStats : MonoBehaviour
             heart2.SetActive(false);
             heart3.SetActive(false);
         }
+
+        if (coins == 3)
+        {
+            coins1.SetActive(true);
+            coins2.SetActive(true);
+            coins3.SetActive(true);
+        }
+        else if (coins == 2)
+        {
+            coins1.SetActive(true);
+            coins2.SetActive(true);
+            coins3.SetActive(false);
+        }
+        else if (coins == 1)
+        {
+            coins1.SetActive(true);
+            coins2.SetActive(false);
+            coins3.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -126,6 +149,11 @@ public class PlayerStats : MonoBehaviour
         {
             score = score + 10;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Ending"))
+        {
+            Time.timeScale = 0f;
+            endScreen.SetActive(true);
         }
     }
 

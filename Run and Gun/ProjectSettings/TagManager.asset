@@ -15,6 +15,7 @@ TagManager:
   - Gem
   - Spikes
   - ShootingDisc
+  - Ending
   layers:
   - Default
   - TransparentFX

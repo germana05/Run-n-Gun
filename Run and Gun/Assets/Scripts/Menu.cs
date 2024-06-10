@@ -8,11 +8,11 @@ using TMPro;
 public class Menu : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timePlayedText;
     public GameObject pauseScreen;
     public GameObject Settings;
     public bool isPaused;
     public float timePlaying;
-    public int timePlayed;
 
     void Start()
     {
@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
         int seconds = Mathf.FloorToInt(timePlaying % 60);
         int minutes = Mathf.FloorToInt(timePlaying / 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timePlayedText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
         {
