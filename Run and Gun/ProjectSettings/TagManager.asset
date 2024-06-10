@@ -12,6 +12,9 @@ TagManager:
   - Key
   - Enemy
   - BulletPickup
+  - Gem
+  - Spikes
+  - ShootingDisc
   layers:
   - Default
   - TransparentFX

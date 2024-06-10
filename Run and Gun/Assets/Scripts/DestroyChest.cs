@@ -21,6 +21,7 @@ public class DestroyChest : MonoBehaviour
             if (stats.hasKey == true)
             {
                 Destroy(stats.currentChest);
+                stats.keys--;
                 Debug.Log("key is used");
             }
             else
@@ -44,6 +45,7 @@ public class DestroyChest : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             byChest = false;
+            stats.currentChest = null;
         }
     }
 }

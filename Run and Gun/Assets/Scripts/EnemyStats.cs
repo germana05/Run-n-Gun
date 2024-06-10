@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -13,13 +14,16 @@ public class EnemyStats : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
     public GameObject kogel;
+    public GameObject statsObject;
     public Transform kogelSpawn;
     public Transform player;
     public Transform rotateObject;
+    public PlayerStats stats;
 
     void Start()
     {
-        
+        statsObject = GameObject.FindWithTag("Player");
+        stats = statsObject.GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -51,6 +55,7 @@ public class EnemyStats : MonoBehaviour
         if (levens <= 0)
         {
             Destroy(gameObject);
+            stats.score += 10;
         }
 
         if (canTakeDamage == false)

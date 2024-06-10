@@ -7,6 +7,8 @@ public class BulletScript : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
+    public GameObject statsObject;
+    public PlayerStats stats;
     public float force;
     public float timer;
 
@@ -20,6 +22,9 @@ public class BulletScript : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
+
+        statsObject = GameObject.FindWithTag("Player");
+        stats = statsObject.GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -37,6 +42,12 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("ShootingDisc"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            stats.score += 10;
         }
     }
 }

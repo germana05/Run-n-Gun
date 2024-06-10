@@ -70,12 +70,6 @@ public class PlayerStats : MonoBehaviour
             hasKey= false;
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && hasKey == true)
-        {
-            Debug.Log("opent kist");
-            keys--;
-        }
-
         if (levens == 3)
         {
             heart1.SetActive(true);
@@ -123,5 +117,20 @@ public class PlayerStats : MonoBehaviour
             levens--;
             canTakeDamage = false;
         }
+        if (collision.gameObject.CompareTag("Spikes") && canTakeDamage == true)
+        {
+            levens--;
+            canTakeDamage = false;
+        }
+        if (collision.gameObject.CompareTag("Gem"))
+        {
+            score = score + 10;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
     }
 }
