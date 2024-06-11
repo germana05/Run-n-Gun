@@ -55,7 +55,7 @@ public class EnemyStats : MonoBehaviour
         if (levens <= 0)
         {
             Destroy(gameObject);
-            stats.score += 10;
+            stats.score += 50;
         }
 
         if (canTakeDamage == false)

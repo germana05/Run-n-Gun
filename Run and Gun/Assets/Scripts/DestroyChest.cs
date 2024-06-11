@@ -22,6 +22,7 @@ public class DestroyChest : MonoBehaviour
             {
                 Destroy(stats.currentChest);
                 stats.keys--;
+                stats.score += 25;
                 Debug.Log("key is used");
             }
             else

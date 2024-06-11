@@ -47,6 +47,11 @@ public class PlayerStats : MonoBehaviour
             invincibleTimer = 1f;
         }
 
+        if (score < 0)
+        {
+            score = 0;
+        }
+
         keysText.text = keys.ToString();
         scoreText.text = score.ToString();
         endScoreText.text = score.ToString();
@@ -118,6 +123,7 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("BadKogel") && canTakeDamage == true)
         {
             levens--;
+            score -= 50;
             canTakeDamage = false;
         }
         if (collision.gameObject.CompareTag("Munt"))
@@ -138,11 +144,13 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && canTakeDamage == true)
         {
             levens--;
+            score -= 50;
             canTakeDamage = false;
         }
         if (collision.gameObject.CompareTag("Spikes") && canTakeDamage == true)
         {
             levens--;
+            score -= 50;
             canTakeDamage = false;
         }
         if (collision.gameObject.CompareTag("Gem"))
@@ -152,6 +160,18 @@ public class PlayerStats : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Ending"))
         {
+            if (coins == 1)
+            {
+                score = score * 2;
+            }
+            else if (coins == 2)
+            {
+                score = score * 3;
+            }
+            else if (coins == 3)
+            {
+                score = score * 4;
+            }
             Time.timeScale = 0f;
             endScreen.SetActive(true);
         }

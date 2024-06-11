@@ -47,7 +47,7 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
-            stats.score += 10;
+            stats.score += 20;
         }
     }
 }
