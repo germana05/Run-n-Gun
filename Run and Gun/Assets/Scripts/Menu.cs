@@ -42,18 +42,6 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void QuitGame()
-    {
-        Environment.Exit(0);
-        Debug.Log("close Game");
-    }
-
-    public void Respawn()
-    {
-        SceneManager.LoadScene("Game");
-        Time.timeScale = 1.0f;
-    }
-
     public void SettingsOpen()
     {
         Settings.SetActive(true);
@@ -64,15 +52,5 @@ public class Menu : MonoBehaviour
     {
         Settings.SetActive(false);
         pauseScreen.SetActive(true);
-    }
-
-    public void StartPlay()
-    {
-        SceneManager.LoadScene("Main Menu");
-    }
-
-    public void QuitPlay()
-    {
-        SceneManager.LoadScene("Main Menu");
     }
 }
