@@ -95,6 +95,7 @@ public class EnemyStats : MonoBehaviour
         {
             levens--;
             canTakeDamage = false;
+            Destroy(collision.gameObject);
         }
     }
 }

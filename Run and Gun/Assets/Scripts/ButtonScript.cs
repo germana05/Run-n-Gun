@@ -6,35 +6,58 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
-    void BackToMain()
+    public GameObject optionScreenPause;
+    public GameObject optionScreen;
+    public GameObject pauseScreen;
+    public GameObject endScreen;
+    public GameObject helpScreen;
+    public GameObject mainMenu;
+    public void BackToMain()
     {
         SceneManager.LoadScene("Main Menu");
     }
-    void ToLevel2()
+    public void ToLevel2()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level2");
     }
-    void ToLevel5()
+    public void ToLevel3()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level3");
     }
-    void ToLevel4()
+    public void ToLevel4()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level4");
     }
-    void ToLevel3()
+    public void ToLevel5()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level5");
     }
-    void StartPlay()
+    public void StartPlay()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Game");
     }
-    void OpenOptions()
+    public void OpenOptions()
     {
-
+        optionScreen.SetActive(true);
+        mainMenu.SetActive(false);
     }
-    void QuitGame()
+    public void CloseOptions()
+    {
+        optionScreen.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+    public void OpenOptionsPause()
+    {
+        optionScreenPause.SetActive(true);
+        pauseScreen.SetActive(false);
+        endScreen.SetActive(false);
+    }
+    public void CloseOptionsToPause()
+    {
+        optionScreenPause.SetActive(false);
+        pauseScreen.SetActive(true);
+    }
+    public void QuitGame()
     {
         Environment.Exit(0);
         Debug.Log("close Game");
@@ -47,5 +70,15 @@ public class ButtonScript : MonoBehaviour
     public void QuitPlay()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+    public void OpenHelp()
+    {
+        helpScreen.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+    public void CloseHelp()
+    {
+        helpScreen.SetActive(false);
+        mainMenu.SetActive(true);
     }
 }

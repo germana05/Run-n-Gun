@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 5f;
     public float jump = 10f;
     public bool doubleJump;
-    private bool isGrounded;
+    public bool isGrounded;
+    public bool onSpikes;
     public Transform groundCheck;
     private Rigidbody2D rb;
     public LayerMask groundMask;
@@ -38,6 +39,25 @@ public class PlayerMovement : MonoBehaviour
         {
                 rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
                 doubleJump = false;
+        }
+        if (onSpikes == true && Input.GetKeyDown (KeyCode.Space))
+        {
+            rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spikes"))
+        {
+            onSpikes = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spikes"))
+        {
+            onSpikes = false;
         }
     }
 }

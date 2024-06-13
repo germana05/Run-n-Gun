@@ -41,16 +41,4 @@ public class Menu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
     }
-
-    public void SettingsOpen()
-    {
-        Settings.SetActive(true);
-        pauseScreen.SetActive(false);
-    }
-
-    public void SettingsClose()
-    {
-        Settings.SetActive(false);
-        pauseScreen.SetActive(true);
-    }
 }

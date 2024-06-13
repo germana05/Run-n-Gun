@@ -6,8 +6,11 @@ public class DestroyChest : MonoBehaviour
 {
     static public bool byChest = false;
     public PlayerStats stats;
-
     public GameObject statsObject;
+    public GameObject coinSpawn;
+    public GameObject coinToSpawn;
+    public GameObject ammoSpawn;
+    public GameObject ammoToSpawn;
     private void Start()
     {
         statsObject = GameObject.FindWithTag("Player");
@@ -23,6 +26,8 @@ public class DestroyChest : MonoBehaviour
                 Destroy(stats.currentChest);
                 stats.keys--;
                 stats.score += 25;
+                Instantiate(coinToSpawn, coinSpawn.transform);
+                Instantiate(ammoToSpawn, ammoSpawn.transform);
                 Debug.Log("key is used");
             }
             else

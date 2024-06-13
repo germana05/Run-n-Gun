@@ -16,6 +16,7 @@ TagManager:
   - Spikes
   - ShootingDisc
   - Ending
+  - Shield
   layers:
   - Default
   - TransparentFX

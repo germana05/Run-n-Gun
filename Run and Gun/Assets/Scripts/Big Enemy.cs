@@ -6,6 +6,8 @@ using UnityEngine;
 public class BigEnemy : MonoBehaviour
 {
     public int levens = 5;
+    public float invincibleTimer = 0.1f;
+    public bool canTakeDamage = true;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -26,6 +28,15 @@ public class BigEnemy : MonoBehaviour
         {
             Destroy(gameObject);
             stats.score += 100;
+        }
+        if (canTakeDamage == false)
+        {
+            invincibleTimer -= Time.deltaTime;
+        }
+        if (invincibleTimer < 0f)
+        {
+            canTakeDamage = true;
+            invincibleTimer = 0.1f;
         }
 
         if (levens == 5)
@@ -72,9 +83,11 @@ public class BigEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Kogel"))
+        if (collision.gameObject.CompareTag("Kogel") && canTakeDamage == true)
         {
             levens--;
+            Destroy(collision.gameObject);
+            canTakeDamage = false;
         }
     }
 }

@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScoreText;
     //public TextMeshProUGUI highScoreText;
+    public PlayerMovement movement;
 
 
     void Start()
@@ -59,7 +60,6 @@ public class PlayerStats : MonoBehaviour
 
         if (levens == 0)
         {
-            Destroy(gameObject);
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
