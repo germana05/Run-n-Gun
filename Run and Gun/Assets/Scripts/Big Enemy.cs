@@ -7,13 +7,18 @@ public class BigEnemy : MonoBehaviour
 {
     public int levens = 5;
     public float invincibleTimer = 0.1f;
+    public float speed = 5f;
     public bool canTakeDamage = true;
+    public bool playerInRange = false;
+    public bool inWalkRange = false;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
     public GameObject heart4;
     public GameObject heart5;
     public GameObject statsObject;
+    public GameObject shieldHoldLeft;
+    public GameObject shieldHoldRight;
     public PlayerStats stats;
 
     void Start()
@@ -79,6 +84,46 @@ public class BigEnemy : MonoBehaviour
             heart4.SetActive(false);
             heart5.SetActive(false);
         }
+
+        CheckPlayerPos();
+        GoToPlayer();
+    }
+
+    private void CheckPlayerPos()
+    {
+        float playerPos = statsObject.transform.position.x;
+        float enemyPos = transform.position.x;
+
+        if (playerPos < enemyPos)
+        {
+            shieldHoldLeft.SetActive(true);
+            shieldHoldRight.SetActive(false);
+            Debug.Log("player is left of the enemy.");
+        }
+        else if (playerPos > enemyPos)
+        {
+            shieldHoldLeft.SetActive(false);
+            shieldHoldRight.SetActive(true);
+            Debug.Log("player is right of the enemy.");
+        }
+    }
+
+    private void GoToPlayer()
+    {
+        float playerPos = statsObject.transform.position.x;
+        float enemyPos = transform.position.x;
+        Vector3 direction = Vector3.zero;
+
+        if (playerPos < enemyPos && playerInRange == true && inWalkRange == true)
+        {
+            direction = Vector3.left;
+        }
+        else if (playerPos > enemyPos && playerInRange == true && inWalkRange == true)
+        {
+            direction = Vector3.right;
+        }
+
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,5 +134,11 @@ public class BigEnemy : MonoBehaviour
             Destroy(collision.gameObject);
             canTakeDamage = false;
         }
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
     }
 }

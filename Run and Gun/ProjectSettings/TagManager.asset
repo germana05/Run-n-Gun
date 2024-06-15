@@ -17,6 +17,9 @@ TagManager:
   - ShootingDisc
   - Ending
   - Shield
+  - BigEnemyMoveRange
+  - BigEnemy
+  - WalkRangeEnemy
   layers:
   - Default
   - TransparentFX

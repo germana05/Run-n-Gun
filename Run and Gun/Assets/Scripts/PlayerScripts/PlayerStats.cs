@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -23,16 +24,19 @@ public class PlayerStats : MonoBehaviour
     public GameObject coins2;
     public GameObject coins3;
     public GameObject currentChest;
+    public GameObject bigEnemyStats;
     public TextMeshProUGUI keysText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScoreText;
     //public TextMeshProUGUI highScoreText;
     public PlayerMovement movement;
+    public BigEnemy stats;
 
 
     void Start()
     {
-        
+        bigEnemyStats = GameObject.FindWithTag("BigEnemy");
+        stats = bigEnemyStats.GetComponent<BigEnemy>();
     }
 
     void Update()
@@ -175,10 +179,17 @@ public class PlayerStats : MonoBehaviour
             Time.timeScale = 0f;
             endScreen.SetActive(true);
         }
+        if (collision.gameObject.CompareTag("BigEnemyMoveRange"))
+        {
+            stats.playerInRange = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("BigEnemyMoveRange"))
+        {
+            stats.playerInRange = false;
+        }
     }
 }
