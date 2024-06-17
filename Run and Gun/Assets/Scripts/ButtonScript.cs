@@ -18,18 +18,22 @@ public class ButtonScript : MonoBehaviour
     }
     public void ToLevel2()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Level2");
     }
     public void ToLevel3()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Level3");
     }
     public void ToLevel4()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Level4");
     }
     public void ToLevel5()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Level5");
     }
     public void StartPlay()
@@ -64,8 +68,8 @@ public class ButtonScript : MonoBehaviour
     }
     public void Respawn()
     {
-        SceneManager.LoadScene("Game");
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Game");
     }
     public void QuitPlay()
     {

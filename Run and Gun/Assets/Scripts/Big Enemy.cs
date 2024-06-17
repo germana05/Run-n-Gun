@@ -10,7 +10,6 @@ public class BigEnemy : MonoBehaviour
     public float speed = 5f;
     public bool canTakeDamage = true;
     public bool playerInRange = false;
-    public bool inWalkRange = false;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -114,11 +113,11 @@ public class BigEnemy : MonoBehaviour
         float enemyPos = transform.position.x;
         Vector3 direction = Vector3.zero;
 
-        if (playerPos < enemyPos && playerInRange == true && inWalkRange == true)
+        if (playerPos < enemyPos && playerInRange == true)
         {
             direction = Vector3.left;
         }
-        else if (playerPos > enemyPos && playerInRange == true && inWalkRange == true)
+        else if (playerPos > enemyPos && playerInRange == true)
         {
             direction = Vector3.right;
         }
@@ -134,7 +133,6 @@ public class BigEnemy : MonoBehaviour
             Destroy(collision.gameObject);
             canTakeDamage = false;
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
