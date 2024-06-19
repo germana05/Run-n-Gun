@@ -369,6 +369,8 @@ MonoBehaviour:
   walkSpeed: 5
   jump: 5
   doubleJump: 0
+  isGrounded: 0
+  onSpikes: 0
   groundCheck: {fileID: 7152644893308903113}
   groundMask:
     serializedVersion: 2
@@ -404,6 +406,9 @@ MonoBehaviour:
   keysText: {fileID: 0}
   scoreText: {fileID: 0}
   endScoreText: {fileID: 0}
+  movement: {fileID: 6390058943738690763}
+  bigEnemyStats: {fileID: 0}
+  kogels: {fileID: 6347101912585910774}
 --- !u!1 &3349355833739116013
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +618,7 @@ MonoBehaviour:
   machine: {fileID: 233734712534201754}
   bulletSpawnBlaster: {fileID: 3438333180753793365}
   bulletSpawnMachine: {fileID: 2873483870303042135}
-  machineBullets: 30
+  machineBullets: 20
   canFireBlaster: 1
   canFireMachine: 0
   holdsBlaster: 1

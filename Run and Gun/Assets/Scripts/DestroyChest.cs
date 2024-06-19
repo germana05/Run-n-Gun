@@ -11,6 +11,9 @@ public class DestroyChest : MonoBehaviour
     public GameObject coinToSpawn;
     public GameObject ammoSpawn;
     public GameObject ammoToSpawn;
+
+    public SpriteRenderer sprite;
+    public BoxCollider2D boxCollider2D;
     private void Start()
     {
         statsObject = GameObject.FindWithTag("Player");
@@ -23,11 +26,12 @@ public class DestroyChest : MonoBehaviour
         {
             if (stats.hasKey == true)
             {
-                Destroy(stats.currentChest);
+                sprite.enabled = false;
+                boxCollider2D.enabled = false;
                 stats.keys--;
                 stats.score += 25;
-                Instantiate(coinToSpawn, coinSpawn.transform);
-                Instantiate(ammoToSpawn, ammoSpawn.transform);
+                Instantiate(coinToSpawn, coinSpawn.transform.position, coinSpawn.transform.rotation);
+                Instantiate(ammoToSpawn, ammoSpawn.transform.position, coinSpawn.transform.rotation);
                 Debug.Log("key is used");
             }
             else

@@ -89,6 +89,11 @@ public class WapenRichten : MonoBehaviour
             blasterAmmo.SetActive(true);
         }
 
+        if (machineBullets > 20)
+        {
+            machineBullets = 20;
+        }
+
         WeaponSwitch();
     }
 

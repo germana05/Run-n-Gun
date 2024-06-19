@@ -9,7 +9,6 @@ public class BigEnemy : MonoBehaviour
     public float invincibleTimer = 0.1f;
     public float speed = 5f;
     public bool canTakeDamage = true;
-    public bool playerInRange = false;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -18,12 +17,15 @@ public class BigEnemy : MonoBehaviour
     public GameObject statsObject;
     public GameObject shieldHoldLeft;
     public GameObject shieldHoldRight;
+    public GameObject seeRange;
+    public SeeRangeBigEnemy seeRangeBigEnemy;
     public PlayerStats stats;
 
     void Start()
     {
         statsObject = GameObject.FindWithTag("Player");
         stats = statsObject.GetComponent<PlayerStats>();
+        seeRangeBigEnemy = seeRange.GetComponent<SeeRangeBigEnemy>();
     }
 
     void Update()
@@ -113,11 +115,11 @@ public class BigEnemy : MonoBehaviour
         float enemyPos = transform.position.x;
         Vector3 direction = Vector3.zero;
 
-        if (playerPos < enemyPos && playerInRange == true)
+        if (playerPos < enemyPos && seeRangeBigEnemy.playerInRange == true)
         {
             direction = Vector3.left;
         }
-        else if (playerPos > enemyPos && playerInRange == true)
+        else if (playerPos > enemyPos && seeRangeBigEnemy.playerInRange == true)
         {
             direction = Vector3.right;
         }

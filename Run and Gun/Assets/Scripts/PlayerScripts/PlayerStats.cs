@@ -24,19 +24,19 @@ public class PlayerStats : MonoBehaviour
     public GameObject coins2;
     public GameObject coins3;
     public GameObject currentChest;
-    public GameObject bigEnemyStats;
     public TextMeshProUGUI keysText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScoreText;
     //public TextMeshProUGUI highScoreText;
     public PlayerMovement movement;
-    public BigEnemy stats;
+    public BigEnemy bigEnemyStats;
+    public WapenRichten kogels;
 
 
     void Start()
     {
-        bigEnemyStats = GameObject.FindWithTag("BigEnemy");
-        stats = bigEnemyStats.GetComponent<BigEnemy>();
+        levens = 3;
+        Time.timeScale = 1.0f;
     }
 
     void Update()
@@ -157,10 +157,26 @@ public class PlayerStats : MonoBehaviour
             score -= 50;
             canTakeDamage = false;
         }
+        if (collision.gameObject.CompareTag("BulletPickup"))
+        {
+            kogels.machineBullets += 5;
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.CompareTag("Gem"))
         {
             score = score + 10;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Explosion"))
+        {
+            if (levens == 3 || levens == 2)
+            {
+                levens -= 2;
+            }
+            else if (levens == 1)
+            {
+                levens -= 1;
+            }
         }
         if (collision.gameObject.CompareTag("Ending"))
         {
@@ -179,17 +195,10 @@ public class PlayerStats : MonoBehaviour
             Time.timeScale = 0f;
             endScreen.SetActive(true);
         }
-        if (collision.gameObject.CompareTag("BigEnemyMoveRange"))
-        {
-            stats.playerInRange = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("BigEnemyMoveRange"))
-        {
-            stats.playerInRange = false;
-        }
+        
     }
 }

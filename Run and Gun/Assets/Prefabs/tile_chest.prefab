@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3392482001014562932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -0.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3635547104260639831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -213,3 +213,5 @@ MonoBehaviour:
   coinToSpawn: {fileID: 7236126007337841107, guid: 5d46aa47d52a16448a58b1a9d42e6fe1, type: 3}
   ammoSpawn: {fileID: 3635547104260639831}
   ammoToSpawn: {fileID: 9111691393680648140, guid: 041b654dae29933429f4aa04a3a662d8, type: 3}
+  sprite: {fileID: 417572300900332184}
+  boxCollider2D: {fileID: 6991637020284262793}
