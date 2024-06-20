@@ -23,6 +23,7 @@ TagManager:
   - SmallEnemy
   - Ground
   - BigEnemyRange
+  - Audio
   layers:
   - Default
   - TransparentFX

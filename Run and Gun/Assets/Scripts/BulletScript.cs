@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour
     public float force;
     public float timer;
 
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();

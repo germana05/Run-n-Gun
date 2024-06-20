@@ -12,6 +12,10 @@ public class ButtonScript : MonoBehaviour
     public GameObject endScreen;
     public GameObject helpScreen;
     public GameObject mainMenu;
+
+    private void Awake()
+    {
+    }
     public void BackToMain()
     {
         SceneManager.LoadScene("Main Menu");

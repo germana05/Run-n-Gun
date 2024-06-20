@@ -115,12 +115,4 @@ public class WapenRichten : MonoBehaviour
             holdsBlaster = true;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("BulletPickup"))
-        {
-            machineBullets = machineBullets + 15;
-        }
-    }
 }

@@ -19,8 +19,10 @@ public class SmallEnemy : MonoBehaviour
     public SeeRangeSmallEnemy seeRangeScript;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
+
     void Start()
     {
+
         statsObject = GameObject.FindWithTag("Player");
         stats = statsObject.GetComponent<PlayerStats>();
         seeRangeScript = seeRange.GetComponent<SeeRangeSmallEnemy>();

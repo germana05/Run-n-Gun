@@ -14,9 +14,9 @@ public class Menu : MonoBehaviour
     public bool isPaused;
     public float timePlaying;
 
+
     void Start()
     {
-        
     }
 
     public void Update()

@@ -32,7 +32,6 @@ public class PlayerStats : MonoBehaviour
     public BigEnemy bigEnemyStats;
     public WapenRichten kogels;
 
-
     void Start()
     {
         levens = 3;
@@ -195,10 +194,5 @@ public class PlayerStats : MonoBehaviour
             Time.timeScale = 0f;
             endScreen.SetActive(true);
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
     }
 }
