@@ -613,7 +613,7 @@ MonoBehaviour:
   machineAmmo: {fileID: 0}
   blasterAmmo: {fileID: 0}
   bulletBlaster: {fileID: 4826219308408738038, guid: e7649f43fce51d74b9ee42019694c866, type: 3}
-  bulletMachine: {fileID: 4826219308408738038, guid: e7649f43fce51d74b9ee42019694c866, type: 3}
+  bulletMachine: {fileID: 4826219308408738038, guid: 39906a6e6fdd65143aa452e1c3b5710c, type: 3}
   blaster: {fileID: 42447602383010667}
   machine: {fileID: 233734712534201754}
   bulletSpawnBlaster: {fileID: 3438333180753793365}

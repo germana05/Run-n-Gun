@@ -135,10 +135,11 @@ public class BigEnemy : MonoBehaviour
             Destroy(collision.gameObject);
             canTakeDamage = false;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
+        if (collision.gameObject.CompareTag("MachineBullet") && canTakeDamage == true)
+        {
+            levens--;
+            canTakeDamage = false;
+            Destroy(collision.gameObject);
+        }
     }
 }

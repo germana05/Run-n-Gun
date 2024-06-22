@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Text;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using Unity.VisualScripting;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class PlayerStats : MonoBehaviour
     public int coins;
     public int keys;
     public int score;
-    //public int highScore;
     public bool hasKey = false;
     public bool canTakeDamage = true;
     public float invincibleTimer = 1f;
@@ -27,7 +27,6 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI keysText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScoreText;
-    //public TextMeshProUGUI highScoreText;
     public PlayerMovement movement;
     public BigEnemy bigEnemyStats;
     public WapenRichten kogels;
@@ -59,7 +58,6 @@ public class PlayerStats : MonoBehaviour
         keysText.text = keys.ToString();
         scoreText.text = score.ToString();
         endScoreText.text = score.ToString();
-        //highScoreText.text = highScore.ToString();
 
         if (levens == 0)
         {
@@ -158,7 +156,7 @@ public class PlayerStats : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("BulletPickup"))
         {
-            kogels.machineBullets += 5;
+            kogels.machineBullets += 3;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Gem"))

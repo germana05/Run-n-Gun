@@ -17,12 +17,11 @@ public class WapenRichten : MonoBehaviour
     public GameObject machine;
     public Transform bulletSpawnBlaster;
     public Transform bulletSpawnMachine;
-    public int machineBullets = 30;
+    public int machineBullets = 8;
     public bool canFireBlaster = true;
     public bool canFireMachine = false;
     public bool holdsBlaster = true;
     public bool holdsMachine = false;
-    public bool isReloading = false;
     private float timer;
     public float timeBetweenFiringBlaster = 1f;
     public float timeBetweenFiringMachine = 0.3f;

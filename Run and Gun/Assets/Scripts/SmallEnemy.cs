@@ -19,6 +19,7 @@ public class SmallEnemy : MonoBehaviour
     public SeeRangeSmallEnemy seeRangeScript;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
+    
 
     void Start()
     {
@@ -97,10 +98,11 @@ public class SmallEnemy : MonoBehaviour
         {
             Explode();
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
+        if (collision.gameObject.CompareTag("MachineBullet") && canTakeDamage == true)
+        {
+            levens--;
+            canTakeDamage = false;
+            Destroy(collision.gameObject);
+        }
     }
 }

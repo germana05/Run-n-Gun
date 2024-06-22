@@ -98,4 +98,14 @@ public class EnemyStats : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MachineBullet") && canTakeDamage == true)
+        {
+            levens--;
+            canTakeDamage = false;
+            Destroy(collision.gameObject);
+        }
+    }
 }

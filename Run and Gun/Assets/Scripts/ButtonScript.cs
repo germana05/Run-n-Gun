@@ -47,23 +47,10 @@ public class ButtonScript : MonoBehaviour
     public void OpenOptions()
     {
         optionScreen.SetActive(true);
-        mainMenu.SetActive(false);
     }
     public void CloseOptions()
     {
         optionScreen.SetActive(false);
-        mainMenu.SetActive(true);
-    }
-    public void OpenOptionsPause()
-    {
-        optionScreenPause.SetActive(true);
-        pauseScreen.SetActive(false);
-        endScreen.SetActive(false);
-    }
-    public void CloseOptionsToPause()
-    {
-        optionScreenPause.SetActive(false);
-        pauseScreen.SetActive(true);
     }
     public void QuitGame()
     {
