@@ -7,6 +7,7 @@ public class SettingsScript : MonoBehaviour
 {
     public Toggle vSyncToggle;
     public Toggle fullscreenToggle;
+    public Toggle soundToggle;
     public AudioSource src;
     public AudioClip toggleSound;
 
@@ -20,11 +21,12 @@ public class SettingsScript : MonoBehaviour
     {
         Debug.Log("Fullscreen toggle is " + fullscreenToggle.isOn);
         Debug.Log("VSync toggle is " + vSyncToggle.isOn);
+        Debug.Log("sound toggle is " + soundToggle.isOn);
+
+        Screen.fullScreen = fullscreenToggle.isOn;
 
         src.clip = toggleSound;
         src.Play();
-
-        Screen.fullScreen = fullscreenToggle.isOn;
 
         if (vSyncToggle.isOn)
         {
@@ -33,6 +35,15 @@ public class SettingsScript : MonoBehaviour
         else
         {
             QualitySettings.vSyncCount = 0;
+        }
+
+        if (soundToggle.isOn)
+        {
+            src.enabled = true;
+        }
+        else
+        {
+            src.enabled = false;
         }
     }
 }

@@ -63,6 +63,10 @@ public class MachineBullet : MonoBehaviour
             src.Play();
             stats.score += 20;
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.CompareTag("AboveEnemy"))
         {
             aboveEnemy = true;
