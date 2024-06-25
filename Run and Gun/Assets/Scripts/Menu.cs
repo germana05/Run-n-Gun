@@ -11,6 +11,8 @@ public class Menu : MonoBehaviour
     public TextMeshProUGUI timePlayedText;
     public GameObject pauseScreen;
     public GameObject Settings;
+    public AudioSource src;
+    public AudioClip buttonPress;
     public bool isPaused;
     public float timePlaying;
 
@@ -37,6 +39,8 @@ public class Menu : MonoBehaviour
 
     public void ResumeGame()
     {
+        src.clip = buttonPress;
+        src.Play();
         pauseScreen.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;

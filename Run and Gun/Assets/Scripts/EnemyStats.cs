@@ -15,6 +15,8 @@ public class EnemyStats : MonoBehaviour
     public GameObject heart3;
     public GameObject kogel;
     public GameObject statsObject;
+    public AudioSource src;
+    public AudioClip enemyShoot;
     public Transform kogelSpawn;
     public Transform player;
     public Transform rotateObject;
@@ -37,6 +39,8 @@ public class EnemyStats : MonoBehaviour
 
         if (canShoot == true)
         {
+            src.clip = enemyShoot;
+            src.Play();
             Instantiate(kogel, kogelSpawn.position, kogelSpawn.rotation);
             canShoot = false;
         }

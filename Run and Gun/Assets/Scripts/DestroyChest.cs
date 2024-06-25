@@ -5,15 +5,14 @@ using UnityEngine;
 public class DestroyChest : MonoBehaviour
 {
     static public bool byChest = false;
+    public AudioSource src;
+    public AudioClip openChest;
     public PlayerStats stats;
     public GameObject statsObject;
     public GameObject coinSpawn;
     public GameObject coinToSpawn;
     public GameObject ammoSpawn;
     public GameObject ammoToSpawn;
-
-    public SpriteRenderer sprite;
-    public BoxCollider2D boxCollider2D;
     private void Start()
     {
         statsObject = GameObject.FindWithTag("Player");
@@ -26,8 +25,9 @@ public class DestroyChest : MonoBehaviour
         {
             if (stats.hasKey == true)
             {
-                sprite.enabled = false;
-                boxCollider2D.enabled = false;
+                src.clip = openChest;
+                src.Play();
+                Destroy(gameObject);
                 stats.keys--;
                 stats.score += 25;
                 Instantiate(coinToSpawn, coinSpawn.transform.position, coinSpawn.transform.rotation);

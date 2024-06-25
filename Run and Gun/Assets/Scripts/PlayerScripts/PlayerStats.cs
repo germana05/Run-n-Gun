@@ -24,6 +24,8 @@ public class PlayerStats : MonoBehaviour
     public GameObject coins2;
     public GameObject coins3;
     public GameObject currentChest;
+    public AudioSource src;
+    public AudioClip takeDamage, shoot, pickUp;
     public TextMeshProUGUI keysText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScoreText;
@@ -42,6 +44,11 @@ public class PlayerStats : MonoBehaviour
         if (canTakeDamage == false)
         {
             invincibleTimer -= Time.deltaTime;
+        }
+
+        if (keys < 0)
+        {
+            keys = 0;
         }
 
         if (invincibleTimer <= 0 )
@@ -123,6 +130,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BadKogel") && canTakeDamage == true)
         {
+            src.clip = takeDamage;
+            src.Play();
             levens--;
             score -= 50;
             canTakeDamage = false;

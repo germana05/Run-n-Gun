@@ -11,6 +11,8 @@ public class MachineBullet : MonoBehaviour
     public GameObject bigEnemyObject;
     public GameObject smallEnemyObject;
     public GameObject enemyStatsObject;
+    public AudioSource src;
+    public AudioClip shootTarget, hitShield;
     public PlayerStats stats;
     public float force;
     public float timer;
@@ -50,11 +52,15 @@ public class MachineBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Shield"))
         {
             Destroy(gameObject);
+            src.clip = hitShield;
+            src.Play();
         }
         if (collision.gameObject.CompareTag("ShootingDisc"))
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            src.clip = shootTarget;
+            src.Play();
             stats.score += 20;
         }
         if (collision.gameObject.CompareTag("AboveEnemy"))

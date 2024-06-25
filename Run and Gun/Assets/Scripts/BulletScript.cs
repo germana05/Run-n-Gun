@@ -8,6 +8,8 @@ public class BulletScript : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public GameObject statsObject;
+    public AudioSource src;
+    public AudioClip hitShield, shootTarget;
     public PlayerStats stats;
     public float force;
     public float timer;
@@ -43,11 +45,15 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Shield"))
         {
             Destroy(gameObject);
+            src.clip = hitShield;
+            src.Play();
         }
         if (collision.gameObject.CompareTag("ShootingDisc"))
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            src.clip = shootTarget;
+            src.Play();
             stats.score += 20;
         }
     }
